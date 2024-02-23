@@ -59,39 +59,50 @@ namespace CSHSeminarskiRad6
         {
             var text = new StringBuilder();
             bool velikoSlovo = true;
-           
 
-            foreach (char c in input)
+            for (int i = 0; i < input.Length; i++)
             {
+                char currentChar = input[i];
+                char nextChar = i < input.Length - 1 ? input[i + 1] : '\0'; // ako je i manji od niza, prima sljedeci znak, inace null
 
-                //provjera je li znak slovo
-                if (char.IsLetter(c))
+                // provjera je li znak slovo
+                if (char.IsLetter(currentChar))
                 {
                     if (velikoSlovo)
                     {
-                        text.Append(char.ToUpper(c));
+                        text.Append(char.ToUpper(currentChar));
                         velikoSlovo = false;
+
+                        //provjera dž/DŽ, lj/LJ i nj/NJ
+                        if ((currentChar == 'd' || currentChar == 'D' && nextChar == 'ž' || nextChar == 'Ž') ||
+                            (currentChar == 'l' || currentChar == 'L' && nextChar == 'j' || nextChar == 'J') ||
+                            (currentChar == 'n' || currentChar == 'N' && nextChar == 'j' || nextChar == 'J'))
+                        {
+                            text.Append(char.ToUpper(nextChar));
+                            i++; // nastavlja petlju nakon obrade
+                        }
                     }
                     else
                     {
-                        text.Append(char.ToLower(c));
+                        text.Append(char.ToLower(currentChar));
                     }
                 }
 
-                //provjera interpunkcije
-                else if (char.IsPunctuation(c))
+                // provjera interpunkcije
+                else if (char.IsPunctuation(currentChar))
                 {
-                    text.Append(c);
-                    velikoSlovo = true;
+                    text.Append(currentChar);
+                    velikoSlovo = true; 
                 }
                 else
                 {
-                    text.Append(c);
+                    text.Append(currentChar);
                 }
             }
 
             return text.ToString();
         }
+
 
         private void Original_Click(object sender, EventArgs e)
         {
