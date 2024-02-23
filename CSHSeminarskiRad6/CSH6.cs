@@ -25,7 +25,7 @@ namespace CSHSeminarskiRad6
             {
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    File.WriteAllText(saveFileDialog.FileName, textBox1.Text);
+                    File.WriteAllText(saveFileDialog.FileName, textbox.Text);
                 }
             }
         }

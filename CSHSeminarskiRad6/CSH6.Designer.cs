@@ -34,7 +34,7 @@ namespace CSHSeminarskiRad6
             this.Učitaj = new System.Windows.Forms.Button();
             this.SvaVelika = new System.Windows.Forms.Button();
             this.PremaPravopisu = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textbox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Spremi
@@ -77,20 +77,20 @@ namespace CSHSeminarskiRad6
             this.PremaPravopisu.UseVisualStyleBackColor = true;
             this.PremaPravopisu.Click += new System.EventHandler(this.PremaPravopisu_Click);
             // 
-            // textBox1
+            // textbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(107, 57);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(500, 411);
-            this.textBox1.TabIndex = 6;
+            this.textbox.Location = new System.Drawing.Point(107, 57);
+            this.textbox.Multiline = true;
+            this.textbox.Name = "textbox";
+            this.textbox.Size = new System.Drawing.Size(500, 411);
+            this.textbox.TabIndex = 6;
             // 
             // CSH6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(848, 568);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textbox);
             this.Controls.Add(this.PremaPravopisu);
             this.Controls.Add(this.SvaVelika);
             this.Controls.Add(this.Učitaj);
@@ -107,7 +107,7 @@ namespace CSHSeminarskiRad6
         private System.Windows.Forms.Button Učitaj;
         private System.Windows.Forms.Button SvaVelika;
         private System.Windows.Forms.Button PremaPravopisu;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textbox;
     }
 }
 
