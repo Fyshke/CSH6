@@ -14,6 +14,9 @@ namespace CSHSeminarskiRad6
 {
     public partial class CSH6 : Form
     {
+
+        private string originalText;
+
         public CSH6()
         {
             InitializeComponent();
@@ -37,6 +40,7 @@ namespace CSHSeminarskiRad6
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     textbox.Text = File.ReadAllText(openFileDialog.FileName);
+                    originalText = textbox.Text;
                 }
             }
         }
@@ -54,9 +58,9 @@ namespace CSHSeminarskiRad6
         private string PremaPravopis(string input)
         {
             var text = new StringBuilder();
-
-
             bool velikoSlovo = true;
+           
+
             foreach (char c in input)
             {
 
@@ -89,5 +93,9 @@ namespace CSHSeminarskiRad6
             return text.ToString();
         }
 
+        private void Original_Click(object sender, EventArgs e)
+        {
+            textbox.Text = originalText;
+        }
     }
 }
