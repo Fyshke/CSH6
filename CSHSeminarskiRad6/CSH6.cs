@@ -22,7 +22,7 @@ namespace CSHSeminarskiRad6
             InitializeComponent();
         }
 
-        private void Spremi_Click_1(object sender, EventArgs e)
+        private void Spremi_Click(object sender, EventArgs e)
         {
             using (var saveFileDialog = new SaveFileDialog())
             {
@@ -33,19 +33,19 @@ namespace CSHSeminarskiRad6
             }
         }
 
-        private void Učitaj_Click_1(object sender, EventArgs e)
+        private void Učitaj_Click(object sender, EventArgs e)
         {
             using (var openFileDialog = new OpenFileDialog())
             {
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     textbox.Text = File.ReadAllText(openFileDialog.FileName);
-                    originalText = textbox.Text;
+                    originalText = textbox.Text; 
                 }
             }
         }
 
-        private void SvaVelika_Click_1(object sender, EventArgs e)
+        private void SvaVelika_Click(object sender, EventArgs e)
         {
             textbox.Text = textbox.Text.ToUpper();
         }
@@ -103,10 +103,30 @@ namespace CSHSeminarskiRad6
             return text.ToString();
         }
 
-
         private void Original_Click(object sender, EventArgs e)
+        {           
+            textbox.Text = originalText;  
+        }
+       
+        private string[] genText = new string[]
         {
-            textbox.Text = originalText;
+            "C# je razvijen od strane Microsofta! prvi put je objavljen 2000. godine.",
+            "Ključne karakteristike C# jezika uključuju tipiziranje, nasljeđivanje, polimorfizam i apstrakciju.",
+            "stringovi su nepromjenjivi (immutable)! što znači da se ne mogu mijenjati nakon što su kreirani.",
+            "Dž, lj, nj su slova koja se koriste u hrvatskom i drugim jezicima koji koriste latinično pismo, a često se sreću u riječima kao što su džem, ljubav, njega.",
+            "C# podržava LINQ (Language Integrated Query), što omogućava programerima da pišu upite direktno unutar koda.",
+            "C# ima bogat ekosustav alata i okvira, uključujući ASP.NET za web razvoj, xamarin za razvoj mobilnih aplikacija, Unity za razvoj igara.",
+            "koristi li C# Garbage Collector? on nam služi za upravljanje memorijom! oslobađa programere od brige o ručnom upravljanju memorijom.",
+            "visual Studio je najpopularnije integrirano razvojno okruženje (IDE) za razvoj C# aplikacija.",
+            "C# podržava koncept delegata i događaja! omogućavajući programerima da osjete snagu Observer uzorka, gdje objekti mogu promatrati i reagirati na događaje, kao tajni agenti u svijetu softvera!",
+            "windows Forms je tehnologija za stvaranje korisničkih sučelja (GUI) u .NET okruženju, omogućavajući jednostavnu integraciju s drugim .NET tehnologijama."
+        };
+
+        private void GenerirajText_Click(object sender, EventArgs e)
+        {
+            Random random = new Random();
+            int rgenText = random.Next(genText.Length);
+            textbox.Text = genText[rgenText];
         }
     }
 }
